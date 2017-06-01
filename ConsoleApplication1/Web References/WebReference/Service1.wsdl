@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/WcfService2" />
+      <xs:element name="GetData">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="value" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataUsingDataContract">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfService2" minOccurs="0" name="composite" nillable="true" type="q1:CompositeType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDataUsingDataContractResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService2" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncCitiesKudaGo">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncCitiesKudaGoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncCitiesKudaGoResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncCitiesCulture">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncCitiesCultureResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncCitiesCultureResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncEventsKudaGo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eventDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="locationId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncEventsKudaGoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncEventsKudaGoResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncPlacesKudaGo">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncPlacesKudaGoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncPlacesKudaGoResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncFilmsKudaGo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dateFrom" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="dateTo" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncFilmsKudaGoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncFilmsKudaGoResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncFilmDetailsKudaGo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncFilmDetailsKudaGoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncFilmDetailsKudaGoResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncShowFilmsKudaGo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dateFrom" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="dateTo" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncShowFilmsKudaGoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncShowFilmsKudaGoResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncShowsKudaGo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="dateFrom" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="dateTo" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SyncShowsKudaGoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SyncShowsKudaGoResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfService2" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfService2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="CompositeType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncCitiesKudaGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncCitiesKudaGo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncCitiesKudaGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncCitiesKudaGoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncCitiesCulture_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncCitiesCulture" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncCitiesCulture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncCitiesCultureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncEventsKudaGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncEventsKudaGo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncEventsKudaGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncEventsKudaGoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncPlacesKudaGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncPlacesKudaGo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncPlacesKudaGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncPlacesKudaGoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncFilmsKudaGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncFilmsKudaGo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncFilmsKudaGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncFilmsKudaGoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncFilmDetailsKudaGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncFilmDetailsKudaGo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncFilmDetailsKudaGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncFilmDetailsKudaGoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncShowFilmsKudaGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncShowFilmsKudaGo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncShowFilmsKudaGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncShowFilmsKudaGoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncShowsKudaGo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SyncShowsKudaGo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SyncShowsKudaGo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SyncShowsKudaGoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncCitiesKudaGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncCitiesKudaGo" message="tns:IService1_SyncCitiesKudaGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncCitiesKudaGoResponse" message="tns:IService1_SyncCitiesKudaGo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncCitiesCulture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncCitiesCulture" message="tns:IService1_SyncCitiesCulture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncCitiesCultureResponse" message="tns:IService1_SyncCitiesCulture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncEventsKudaGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncEventsKudaGo" message="tns:IService1_SyncEventsKudaGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncEventsKudaGoResponse" message="tns:IService1_SyncEventsKudaGo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncPlacesKudaGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncPlacesKudaGo" message="tns:IService1_SyncPlacesKudaGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncPlacesKudaGoResponse" message="tns:IService1_SyncPlacesKudaGo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncFilmsKudaGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncFilmsKudaGo" message="tns:IService1_SyncFilmsKudaGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncFilmsKudaGoResponse" message="tns:IService1_SyncFilmsKudaGo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncFilmDetailsKudaGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncFilmDetailsKudaGo" message="tns:IService1_SyncFilmDetailsKudaGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncFilmDetailsKudaGoResponse" message="tns:IService1_SyncFilmDetailsKudaGo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncShowFilmsKudaGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncShowFilmsKudaGo" message="tns:IService1_SyncShowFilmsKudaGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncShowFilmsKudaGoResponse" message="tns:IService1_SyncShowFilmsKudaGo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncShowsKudaGo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SyncShowsKudaGo" message="tns:IService1_SyncShowsKudaGo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SyncShowsKudaGoResponse" message="tns:IService1_SyncShowsKudaGo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncCitiesKudaGo">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncCitiesKudaGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncCitiesCulture">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncCitiesCulture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncEventsKudaGo">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncEventsKudaGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncPlacesKudaGo">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncPlacesKudaGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncFilmsKudaGo">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncFilmsKudaGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncFilmDetailsKudaGo">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncFilmDetailsKudaGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncShowFilmsKudaGo">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncShowFilmsKudaGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncShowsKudaGo">
+      <soap:operation soapAction="http://tempuri.org/IService1/SyncShowsKudaGo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://192.168.56.1/SyncService/Service.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
